@@ -1,0 +1,17 @@
+﻿@model UsuarioModel 
+@{
+    ViewData["Title"] = "Confirmação de eliminar perfil";
+}
+
+<br />
+<br />
+
+<div class="text-center">
+    <h3>Realmente deseja apagar o seu perfil @Model.Nome?</h3>
+    <h2>Uma vez deletado não é possivel resgatar seu dados outra vez!</h2>
+</div>
+
+<br/>
+
+<a class="btn btn-secondary btn-block" role="button" asp-controller="Cadastro" asp-action="Index">Cancelar exclusão</a>
+<a class="btn btn-danger    btn-block"               asp-controller="Cadastro" asp-action="Apagar"  asp-route-id="@Model.Id" role="button">Confirmar exclusão</a>

@@ -1,0 +1,16 @@
+﻿@model EventoModel 
+@{
+    ViewData["Title"] = "Confirmação de eliminar evento";
+}
+
+<br />
+<br />
+
+<div class="text-center">
+    <h3>Realmente deseja apagar o evento <br/> "@Model.Nome" que ocorrerá @Model.Data?</h3>
+</div>
+
+<br/>
+
+<a class="btn btn-secondary btn-block" role="button" asp-controller="Usuario" asp-action="Index">Cancelar exclusão</a>
+<a class="btn btn-danger  btn-block" asp-action="Apagar" asp-controller="Usuario" asp-route-id="@Model.Id" role="button">Confirmar exclusão</a>

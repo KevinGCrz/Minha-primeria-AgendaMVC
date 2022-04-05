@@ -1,0 +1,54 @@
+﻿@model LoginModel
+@{
+    Layout = "_LayoutDeslogado";
+    ViewData["Ttile"] = "Login";
+}
+
+<h2>Meu Login</h2>
+
+<br/>
+<br />
+
+<div class="container">
+<div class="row">
+    <div class="container-fluid text-center col-6">
+        <form asp-controller="Login" asp-action="Entrar" method="post">
+            <div class="mb-3">
+                <label for="Email" class="form-label">Seu Email</label>
+                <input type="email" asp-for="Email" class="form-control" id="Email">
+                @Html.ValidationMessageFor(x => x.Email)
+            </div>
+
+
+            <div class="mb-3">
+                <label for="Senha" class="form-label">Senha</label>
+                <input type="password" asp-for="Senha" class="form-control" id="Senha">
+                @Html.ValidationMessageFor(x => x.Senha)
+            </div>
+
+            @if (TempData["MensagemErro"] != null)
+            {
+                <div class="alert alert-danger" role="alert">
+                    <button type="button" class="btn btn-danger btn-sm close-alert" aria-label="Close">X</button>
+                    @TempData["MensagemErro"]
+                </div>
+            }
+
+            <button type="submit" class="btn btn-primary btn-block">Acessar!</button>
+
+            <br />
+
+            <div class="d-grid gap-2 d-md-flex justify-content-md-start">
+                <a class="btn btn-primary btn-block" role="button" asp-controller="Cadastro" asp-action="Criar">Criando uma conta</a>
+            </div>
+
+        </form>
+    </div> 
+    <div class="container-fluid text-center col-6">
+        <img src="https://images.vexels.com/media/users/3/205950/isolated/lists/6fbc93ab8efc8497ef9ad1f7c815dd33-icone-de-curso-do-calendario.png" />
+    </div>
+</div>
+</div>
+
+
+    

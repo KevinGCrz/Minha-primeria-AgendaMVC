@@ -1,0 +1,66 @@
+﻿@using MinhaAgendaVer1.Enums
+@model UsuarioModel
+@{
+    Layout = "_LayoutDeslogado";
+    ViewData["Title"] = "Cadastrando...";
+}
+
+<div class="text-center">
+
+    <div class="d-grid gap-2 d-md-flex justify-content-md-start">
+        <a class="btn btn-secondary" role="button" asp-controller="Login" asp-action="Index">Voltar</a>
+    </div>
+
+    <h1 class="display-4">Cadastrando um perfil!</h1>
+
+</div>
+
+
+
+<form asp-controller="Cadastro" asp-action="Criar" method="post">
+
+    <div class="form-group">
+        <label for="Nome">Nome</label>
+        <input type="text" asp-for="Nome" class="form-control" placeholder="Digite o seu nome">
+        @Html.ValidationMessageFor(x => x.Nome)
+
+    </div>
+
+    <div class="form-group">
+        <label for="Email">E-mail</label>
+        <input type="text" asp-for="Email" class="form-control" placeholder="Digite o seu email">
+        @Html.ValidationMessageFor(x => x.Email)
+
+    </div>
+
+    <div class="form-group">
+        <label for="Senha">Senha</label>
+        <input type="password" asp-for="Senha" class="form-control" placeholder="Digite uma senha">
+        @Html.ValidationMessageFor(x => x.Senha)
+
+    </div>
+
+    <div class="form-group">
+        <label for="DataNascimento">Data de nascimento</label>
+        <input type="text" asp-for="DataNascimento" class="form-control" placeholder="Digite a data do seu aniversário">
+        @Html.ValidationMessageFor(x => x.DataNascimento)
+
+    </div>
+
+    <div class="form-group">
+        <label for="Sexo">Sexo</label>
+
+        <select asp-for="Sexo" class="form-control">
+            <option value="0">Selecione o seu sexo</option>
+            <option value="@EventoEnum.Masculino">Masculino</option>
+            <option value="@EventoEnum.Feminino">Feminino</option>
+            <option value="@EventoEnum.Outros">Outros</option>
+        </select>
+
+    </div>
+
+
+    <button type="submit" class="btn btn-primary btn-block">Cadastrar!</button>
+
+
+</form>
